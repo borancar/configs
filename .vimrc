@@ -1,45 +1,37 @@
-nnoremap <RightMouse> <LeftMouse>:popup Edit<Enter>
-
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'wincent/command-t'
+Plugin 'solarized'
+Plugin 'derekwyatt/vim-scala'
+call vundle#end()
 
-Bundle 'gmarik/vundle'
-Bundle 'wincent/Command-T'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Solarized'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'fugitive.vim'
-
-set background=dark
-colorscheme solarized
-syntax enable
-
-set showmatch
-set showmode
-set showcmd
-set ruler
-set title
-set matchtime=2
-set textwidth=80
-set mouse=a
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 filetype plugin indent on
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-set guioptions-=m
-set guioptions-=T
+autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd Filetype json setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd Filetype twig setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd Filetype php setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 
 set nobackup
 set noswapfile
 set smartcase
 
-set pastetoggle=<F2>
+set guioptions-=m
+set guioptions-=T
+
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+endif
 
 set path=~/**
