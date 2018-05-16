@@ -8,6 +8,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'wincent/command-t'
 Plugin 'solarized'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 set expandtab
