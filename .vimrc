@@ -36,3 +36,5 @@ if has('gui_running')
 endif
 
 set path=~/**
+set list
+set listchars=tab:>-
