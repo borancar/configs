@@ -5,10 +5,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'wincent/command-t'
 Plugin 'solarized'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'fisadev/vim-isort'
 call vundle#end()
 
 set expandtab
@@ -30,11 +33,16 @@ set smartcase
 set guioptions-=m
 set guioptions-=T
 
-if has('gui_running')
-    set background=dark
-    colorscheme solarized
+set t_Co=256
+set background=dark
+
+if has("gui_running")
+    colorscheme C64
+    set guifont=Monospace\ 11
 endif
 
 set path=~/**
 set list
 set listchars=tab:>-
+
+let g:vim_isort_python_version='python3'
