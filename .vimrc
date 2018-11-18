@@ -1,4 +1,7 @@
 set nocompatible
+set nobackup
+set noswapfile
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -12,6 +15,11 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'fisadev/vim-isort'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 set expandtab
@@ -19,16 +27,19 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" set incremental and smart search
+set incsearch
+set ignorecase
+set smartcase
+set nohlsearch
+
 filetype plugin indent on
 
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd Filetype json setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd Filetype twig setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd Filetype php setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-
-set nobackup
-set noswapfile
-set smartcase
+autocmd Filetype js setlocal noexpandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 set guioptions-=m
 set guioptions-=T
@@ -45,4 +56,4 @@ set path=~/**
 set list
 set listchars=tab:>-
 
-let g:vim_isort_python_version='python3'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
