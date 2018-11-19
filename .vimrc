@@ -20,6 +20,7 @@ Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'fatih/vim-go'
 call vundle#end()
 
 set expandtab
