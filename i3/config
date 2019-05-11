@@ -186,3 +186,4 @@ bar {
 exec i3-config-wizard
 exec xset r rate 250
 exec xinput m 1/1 9999
+exec compton -b --config ~/.config/compton/compton.conf
