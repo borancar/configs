@@ -103,10 +103,6 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(direnv hook zsh)"
-
-export GOPATH=$HOME/go
-
 PATH="$PATH:$HOME/intelFPGA/20.1/modelsim_ase/bin/"
 PATH="$PATH:$HOME/go/bin"
 
@@ -125,3 +121,5 @@ if [ -f '/home/boran/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/boran
 
 export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
 export PATH="$PATH:/home/boran/.local/share/coursier/bin"
+
+eval "$(direnv hook zsh)"
