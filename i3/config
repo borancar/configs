@@ -37,7 +37,7 @@ set $right l
 floating_modifier $modifier
 
 # start a terminal
-bindsym $modifier+Return exec i3-sensible-terminal
+bindsym $modifier+Return exec gnome-terminal
 
 # kill focused window
 bindsym $modifier+Shift+c kill
@@ -184,3 +184,5 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
+exec xset r rate 250
+exec xinput m 1/1 9999
