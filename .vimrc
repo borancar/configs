@@ -57,4 +57,8 @@ set path=~/**
 set list
 set listchars=tab:>-
 
+let g:CommandTFileScanner = "git"
+let g:CommandTGitScanSubmodules = 1
+let g:CommandTGitIncludeUntracked = 1
+
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
