@@ -37,7 +37,7 @@ set $right l
 floating_modifier $modifier
 
 # start a terminal
-bindsym $modifier+Return exec gnome-terminal
+bindsym $modifier+Return exec alacritty
 
 # kill focused window
 bindsym $modifier+Shift+c kill
