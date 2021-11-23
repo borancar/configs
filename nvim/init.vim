@@ -10,6 +10,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-sleuth'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'scalameta/nvim-metals'
+Plug 'mfussenegger/nvim-dap'
 call plug#end()
 
 " set incremental and smart search
@@ -28,6 +30,7 @@ require'lspconfig'.clangd.setup{}
 require'lspconfig'.terraformls.setup{
   filetypes = { "terraform", "hcl", "tf" }
 }
+require'lspconfig'.elmls.setup{}
 
 require'compe'.setup {
   enabled = true;
@@ -54,6 +57,11 @@ require'compe'.setup {
   };
 }
 EOF
+
+augroup lsp
+  au!
+  au FileType scala,sbt,sc lua require("metals").initialize_or_attach({settings = {}})
+augroup end
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
