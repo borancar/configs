@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/boran/.local/bin:/home/boran/bin"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/boran/.local/bin:/home/boran/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -102,3 +102,26 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+eval "$(direnv hook zsh)"
+
+export GOPATH=$HOME/go
+
+PATH="$PATH:$HOME/intelFPGA/20.1/modelsim_ase/bin/"
+PATH="$PATH:$HOME/go/bin"
+
+export PATH
+if [ -n "$PYTHONPATH" ]; then
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.9/site-packages/pdm/pep582':$PYTHONPATH
+else
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.9/site-packages/pdm/pep582'
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/boran/google-cloud-sdk/path.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/boran/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/completion.zsh.inc'; fi
+
+export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
+export PATH="$PATH:/home/boran/.local/share/coursier/bin"
