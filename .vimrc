@@ -12,6 +12,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'wincent/command-t'
 Plugin 'solarized'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'fisadev/vim-isort'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -20,6 +21,10 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
+Plugin 'PProvost/vim-ps1'
+Plugin 'hashivim/vim-terraform'
+Bundle 'OmniSharp/omnisharp-vim'
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 set expandtab
@@ -38,8 +43,9 @@ filetype plugin indent on
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd Filetype json setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd Filetype twig setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-autocmd Filetype php setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-autocmd Filetype js setlocal noexpandtab shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype php setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd Filetype go setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+autocmd Filetype javascript setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 set guioptions-=m
 set guioptions-=T
@@ -56,6 +62,7 @@ set path=~/**
 set list
 set listchars=tab:>-
 
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:CommandTFileScanner = "git"
 let g:CommandTGitScanSubmodules = 1
 let g:CommandTGitIncludeUntracked = 1
