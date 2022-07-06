@@ -20,10 +20,12 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'OmniSharp/omnisharp-roslyn'
 
 Plug 'tpope/vim-sleuth'
+Plug 'Thyrum/vim-stabs'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'scalameta/nvim-metals'
 Plug 'mfussenegger/nvim-dap'
+Plug 'LnL7/vim-nix'
 call plug#end()
 
 " set incremental and smart search
@@ -100,6 +102,9 @@ require'lspconfig'.rust_analyzer.setup{
 require'lspconfig'.clangd.setup {
   capabilities = capabilities,
 }
+require'lspconfig'.hls.setup {
+  capabilites = capabilities,
+}
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities,
   filetypes = { "terraform", "hcl", "tf" },
@@ -113,6 +118,13 @@ require'lspconfig'.omnisharp.setup {
 }
 
 EOF
+
+augroup lsp
+  au!
+  au FileType scala,sbt,sc lua require("metals").initialize_or_attach({settings = {}})
+  au FileType haskell set expandtab shiftwidth=2
+  au FileType elm set expandtab shiftwidth=4
+augroup end
 
 nnoremap <leader>fu <cmd>Telescope lsp_references<cr>
 nnoremap <leader>gd <cmd>Telescope lsp_definitions<cr>
@@ -131,11 +143,6 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('tel
 
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType elm setlocal tabstop=2 shiftwidth=2 expandtab
-
-augroup lsp
-  au!
-  au FileType scala,sbt,sc lua require("metals").initialize_or_attach({settings = {}})
-augroup end
 
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'
