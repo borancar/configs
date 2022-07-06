@@ -24,7 +24,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f35/default/f35.png fill
+output * bg /usr/share/backgrounds/f36/default/f36.png fill
 #
 # Example configuration:
 #
@@ -32,7 +32,8 @@ output * bg /usr/share/backgrounds/f35/default/f35.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output HDMI-A-1 mode 2560x1440@59.951Hz position 0,0
+output HDMI-A-1 mode 2560x1440@59.951Hz position 1920,0
+output eDP-1 mode 1920x1080@59.951Hz position 0,0
 
 ### Input configuration
 #
@@ -218,10 +219,14 @@ bar {
 
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86KbdBrightnessUp exec asusctl --next-kbd-bright
+bindsym XF86KbdBrightnessDown exec asusctl --prev-kbd-bright
 
 ## Screenshots
 bindsym $mod+Prior exec grim -s1 "/home/$USER/Pictures/$(date).png"
 bindsym $mod+Shift+Prior exec (slurp | grim -g- -s1 "/home/$USER/Pictures/$(date).png")
+bindsym $mod+Print exec grim -s1 "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Shift+Print exec (slurp | grim -g- -s1 "/home/$USER/Pictures/$(date).png")
 
 ## Clipboard Screenshots
 bindsym $mod+Ctrl+Prior exec (grim - | wl-copy -t image/png)

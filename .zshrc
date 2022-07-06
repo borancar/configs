@@ -108,9 +108,9 @@ PATH="$PATH:$HOME/go/bin"
 
 export PATH
 if [ -n "$PYTHONPATH" ]; then
-    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.9/site-packages/pdm/pep582':$PYTHONPATH
+    export PYTHONPATH='/home/boran/.local/lib/python3.10/site-packages/pdm/pep582':$PYTHONPATH
 else
-    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.9/site-packages/pdm/pep582'
+    export PYTHONPATH='/home/boran/.local/lib/python3.10/site-packages/pdm/pep582'
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
