@@ -26,6 +26,8 @@ Plug 'jreybert/vimagit'
 Plug 'scalameta/nvim-metals'
 Plug 'mfussenegger/nvim-dap'
 Plug 'LnL7/vim-nix'
+
+Plug 'fatih/vim-go'
 call plug#end()
 
 " set incremental and smart search
@@ -33,6 +35,8 @@ set incsearch
 set ignorecase
 set smartcase
 set nohlsearch
+
+set backupcopy=yes
 
 lua << EOF
 vim.o.completeopt = "menu,menuone,noselect"
@@ -112,7 +116,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require'lspconfig'.gopls.setup {
   capabilities = capabilities,
 }
@@ -133,11 +137,15 @@ require'lspconfig'.terraformls.setup{
   filetypes = { "terraform", "hcl", "tf" },
 }
 require'lspconfig'.omnisharp.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   end,
   cmd = { "/usr/bin/mono", "/home/boran/omnisharp/omnisharp/OmniSharp.exe", "--languageserver" },
+}
+require'lspconfig'.tsserver.setup {
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" },
 }
 
 EOF

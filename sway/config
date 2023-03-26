@@ -24,7 +24,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f36/default/f36.png fill
+output * bg /usr/share/backgrounds/f37/default/f37-01-night.png fill
 #
 # Example configuration:
 #
@@ -247,7 +247,7 @@ bindswitch --locked lid:off output $laptop enable
 # Please remove the following exec line:
 #######################################################################
 exec sway-config-wizard
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway VDPAU_DRIVER=radeonsi
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
