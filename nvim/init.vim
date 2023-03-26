@@ -27,7 +27,11 @@ Plug 'scalameta/nvim-metals'
 Plug 'mfussenegger/nvim-dap'
 Plug 'LnL7/vim-nix'
 
-Plug 'fatih/vim-go'
+Plug 'sebdah/vim-delve'
+
+Plug 'ziglang/zig.vim'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " set incremental and smart search
@@ -147,6 +151,7 @@ require'lspconfig'.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
 }
+require'lspconfig'.zls.setup {}
 
 EOF
 
