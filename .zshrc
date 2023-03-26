@@ -105,6 +105,7 @@ export EDITOR='nvim'
 
 PATH="$PATH:$HOME/intelFPGA/20.1/modelsim_ase/bin/"
 PATH="$PATH:$HOME/go/bin"
+PATH="~/.cargo/bin:$PATH"
 
 export PATH
 if [ -n "$PYTHONPATH" ]; then
@@ -113,22 +114,25 @@ else
     export PYTHONPATH='/home/boran/.local/lib/python3.11/site-packages/pdm/pep582'
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/boran/google-cloud-sdk/path.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/boran/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$PATH:$HOME/google-cloud-sdk/bin"
 
 export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
-export PATH="$PATH:/home/boran/.local/share/coursier/bin"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 eval "$(direnv hook zsh)"
 
-export PATH="$PATH:/home/boran/Applications/android-studio/bin"
+export PATH=$HOME/.npm-packages/bin:$PATH
+export MANPATH="${MANPATH-$(manpath)}:$HOME/.npm-packages/share/man"
+
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+export PATH="$PATH:$HOME/Applications/android-studio/bin"
 
 [ -f "/home/boran/.ghcup/env" ] && source "/home/boran/.ghcup/env" # ghcup-env
