@@ -124,9 +124,6 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 eval "$(direnv hook zsh)"
 
-export PATH=$HOME/.npm-packages/bin:$PATH
-export MANPATH="${MANPATH-$(manpath)}:$HOME/.npm-packages/share/man"
-
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
