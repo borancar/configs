@@ -103,9 +103,10 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export GOPATH="$HOME/go"
 PATH="$PATH:$HOME/intelFPGA/20.1/modelsim_ase/bin/"
 PATH="$PATH:$HOME/go/bin"
-PATH="~/.cargo/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH
 if [ -n "$PYTHONPATH" ]; then
