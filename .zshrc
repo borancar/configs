@@ -110,11 +110,10 @@ source "$HOME/.cargo/env"
 
 export PATH
 if [ -n "$PYTHONPATH" ]; then
-    export PYTHONPATH='/home/boran/.local/lib/python3.11/site-packages/pdm/pep582':$PYTHONPATH
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.11/site-packages/pdm/pep582':$PYTHONPATH
 else
-    export PYTHONPATH='/home/boran/.local/lib/python3.11/site-packages/pdm/pep582'
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.11/site-packages/pdm/pep582'
 fi
-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/boran/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/completion.zsh.inc'; fi
