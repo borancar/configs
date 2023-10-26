@@ -24,7 +24,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f37/default/f37-01-night.png fill
+output * bg /usr/share/backgrounds/f38/default/f38-01-night.png fill
 #
 # Example configuration:
 #
@@ -65,6 +65,10 @@ input "1452:591:Keychron_K8_Keychron_K8" {
 input "1133:49283:Logitech_G403_Prodigy_Gaming_Mouse" {
   accel_profile flat
   pointer_accel 1
+}
+
+output DP-3 {
+  mode 2560x1440@143.912003Hz
 }
 
 ### Key bindings
@@ -231,6 +235,8 @@ bindsym $mod+Shift+Print exec (slurp | grim -g- -s1 "/home/$USER/Pictures/$(date
 ## Clipboard Screenshots
 bindsym $mod+Ctrl+Prior exec (grim - | wl-copy -t image/png)
 bindsym $mod+Ctrl+Shift+Prior exec (slurp | grim -g- -s1 - | wl-copy -t image/png)
+bindsym $mod+Ctrl+Print exec (grim - | wl-copy -t image/png)
+bindsym $mod+Ctrl+Shift+Print exec (slurp | grim -g- -s1 - | wl-copy -t image/png)
 
 set $laptop eDP-1
 bindswitch --locked lid:on output $laptop disable
