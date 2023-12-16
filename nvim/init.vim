@@ -32,7 +32,11 @@ Plug 'sebdah/vim-delve'
 Plug 'ziglang/zig.vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'rebelot/kanagawa.nvim'
 call plug#end()
+
+colorscheme kanagawa
 
 " set incremental and smart search
 set incsearch
