@@ -152,8 +152,16 @@ require'lspconfig'.hls.setup {
 }
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities,
-  filetypes = { "terraform", "hcl", "tf" },
+  filetypes = { "terraform", "hcl", "tf", "tfvars" },
 }
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
 require'lspconfig'.omnisharp.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = function(_, bufnr)
