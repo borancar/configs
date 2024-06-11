@@ -16,6 +16,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
+#set $term warp-terminal
 # Your preferred application launcher
 set $menu j4-dmenu-desktop --dmenu='bemenu -i'
 
@@ -24,7 +25,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f39/default/f39-01-day.png fill
+output * bg /usr/share/backgrounds/f40/default/f40-01-day.png fill
 #
 # Example configuration:
 #
@@ -253,7 +254,7 @@ bindswitch --locked lid:off output $laptop enable
 # Please remove the following exec line:
 #######################################################################
 exec sway-config-wizard
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway VDPAU_DRIVER=radeonsi
+exec dbus-update-activation-environment --systemd _JAVA_AWT_WM_NONREPARENTING=1 WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway VDPAU_DRIVER=radeonsi
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
