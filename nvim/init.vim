@@ -199,6 +199,8 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep(require('tel
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({}))<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({}))<cr>
 
+nnoremap <leader>e <cmd>lua vim.diagnostic.open_float()<cr>
+
 autocmd FileType typescript setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType elm setlocal tabstop=2 shiftwidth=2 expandtab
