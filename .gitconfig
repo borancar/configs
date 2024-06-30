@@ -1,6 +1,7 @@
 [user]
 	name = Boran Car
 	email = boran.car@gmail.com
+	signingkey = 40865774F4EF8624EF94AE57A6096D5134040D7B
 
 [difftool]
 	prompt = true
