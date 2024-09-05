@@ -169,7 +169,7 @@ require'lspconfig'.omnisharp.setup {
   end,
   cmd = { "/usr/bin/mono", "/home/boran/omnisharp/omnisharp/OmniSharp.exe", "--languageserver" },
 }
-require'lspconfig'.tsserver.setup {
+require'lspconfig'.ts_ls.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
 }
