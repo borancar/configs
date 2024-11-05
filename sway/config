@@ -25,7 +25,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f40/default/f40-01-day.png fill
+output * bg /usr/share/backgrounds/f41/default/f41-01-day.png fill
 #
 # Example configuration:
 #
@@ -33,8 +33,8 @@ output * bg /usr/share/backgrounds/f40/default/f40-01-day.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output HDMI-A-1 mode 3440x1440@99.991997Hz position 1600,0
-output eDP-1 mode 1920x1080@59.951Hz position 0,0 scale 1.2
+output HDMI-A-1 mode 3440x1440@100Hz position 1600,0
+output eDP-1 mode 1920x1080@120Hz position 0,0 scale 1.2
 
 ### Input configuration
 #

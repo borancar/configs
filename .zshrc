@@ -108,13 +108,6 @@ PATH="$PATH:$HOME/intelFPGA/20.1/modelsim_ase/bin/"
 PATH="$PATH:$HOME/go/bin"
 source "$HOME/.cargo/env"
 
-export PATH
-if [ -n "$PYTHONPATH" ]; then
-    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.11/site-packages/pdm/pep582':$PYTHONPATH
-else
-    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.11/site-packages/pdm/pep582'
-fi
-
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/boran/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/boran/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="$PATH:$HOME/google-cloud-sdk/bin"
@@ -133,3 +126,9 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 export PATH="$PATH:$HOME/Applications/android-studio/bin"
 
 [ -f "/home/boran/.ghcup/env" ] && source "/home/boran/.ghcup/env" # ghcup-env
+
+if [ -n "$PYTHONPATH" ]; then
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.12/site-packages/pdm/pep582':$PYTHONPATH
+else
+    export PYTHONPATH='/home/boran/.local/share/pdm/venv/lib64/python3.12/site-packages/pdm/pep582'
+fi
