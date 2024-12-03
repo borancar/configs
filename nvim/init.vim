@@ -49,7 +49,7 @@ set backupcopy=yes
 lua << EOF
 vim.o.completeopt = "menu,menuone,noselect"
 
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -134,23 +134,26 @@ cmp.setup.cmdline(':', {
   })
 })
 
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require'lspconfig'.gopls.setup {
+
+local lspconfig = require('lspconfig')
+lspconfig.gopls.setup {
   capabilities = capabilities,
 }
-require'lspconfig'.pyright.setup {
+lspconfig.pyright.setup {
   capabilities = capabilities,
 }
-require'lspconfig'.rust_analyzer.setup{
+lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
 }
-require'lspconfig'.clangd.setup {
+lspconfig.clangd.setup {
   capabilities = capabilities,
 }
-require'lspconfig'.hls.setup {
+lspconfig.hls.setup {
   capabilites = capabilities,
 }
-require'lspconfig'.terraformls.setup{
+lspconfig.terraformls.setup{
   capabilities = capabilities,
   filetypes = { "terraform", "hcl", "tf", "tfvars" },
 }
@@ -162,18 +165,18 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   end,
 })
 
-require'lspconfig'.omnisharp.setup {
+lspconfig.omnisharp.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   end,
   cmd = { "/usr/bin/mono", "/home/boran/omnisharp/omnisharp/OmniSharp.exe", "--languageserver" },
 }
-require'lspconfig'.ts_ls.setup {
+lspconfig.ts_ls.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
 }
-require'lspconfig'.zls.setup {}
+lspconfig.zls.setup {}
 
 EOF
 
