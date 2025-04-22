@@ -25,7 +25,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f41/default/f41-01-day.png fill
+output * bg /usr/share/backgrounds/f42/default/f42-01-day.jxl fill
 #
 # Example configuration:
 #
