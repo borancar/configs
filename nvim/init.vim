@@ -34,6 +34,9 @@ Plug 'ziglang/zig.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'rebelot/kanagawa.nvim'
+
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 call plug#end()
 
 colorscheme kanagawa
@@ -137,26 +140,38 @@ cmp.setup.cmdline(':', {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local lspconfig = require('lspconfig')
-lspconfig.gopls.setup {
+vim.lsp.config('gopls', {
   capabilities = capabilities,
-}
-lspconfig.pyright.setup {
+})
+vim.lsp.config('pyright', {
   capabilities = capabilities,
-}
-lspconfig.rust_analyzer.setup{
+})
+vim.lsp.config('rust_analyzer', {
   capabilities = capabilities,
-}
-lspconfig.clangd.setup {
+})
+vim.lsp.config('clangd', {
   capabilities = capabilities,
-}
-lspconfig.hls.setup {
+})
+vim.lsp.config('hls', {
   capabilites = capabilities,
-}
-lspconfig.terraformls.setup{
+})
+vim.lsp.config('terraformls', {
   capabilities = capabilities,
   filetypes = { "terraform", "hcl", "tf", "tfvars" },
-}
+})
+vim.lsp.config('omnisharp', {
+  capabilities = capabilities,
+  on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end,
+  cmd = { "/usr/bin/mono", "/home/boran/omnisharp/omnisharp/OmniSharp.exe", "--languageserver" },
+})
+vim.lsp.config('ts_ls', {
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+})
+vim.lsp.enable('zls')
+vim.lsp.enable('pyright')
 
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*.tf", "*.tfvars"},
@@ -164,19 +179,6 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
     vim.lsp.buf.format()
   end,
 })
-
-lspconfig.omnisharp.setup {
-  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  on_attach = function(_, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  end,
-  cmd = { "/usr/bin/mono", "/home/boran/omnisharp/omnisharp/OmniSharp.exe", "--languageserver" },
-}
-lspconfig.ts_ls.setup {
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
-}
-lspconfig.zls.setup {}
 
 EOF
 
