@@ -5,14 +5,21 @@ local servers = {
   "gopls",
   "html",
   "lua-language-server",
+  "rust-analyzer",
   "tofu-ls",
   "typescript-language-server",
+}
+
+vim.lsp.config["rust-analyzer"] = {
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_markers = { "Cargo.lock", "Cargo.toml" },
 }
 
 vim.lsp.config["tofu-ls"] = {
   cmd = { "tofu-ls", "serve" },
   filetypes = { "terraform", "hcl", "tf", "tfvars", "tofu" },
-  root_markers = { ".git", ".terraform", "tofu.hcl" },
+  root_markers = { ".terraform", "tofu.hcl" },
   settings = {},
 }
 
