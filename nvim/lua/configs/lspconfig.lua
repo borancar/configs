@@ -16,6 +16,12 @@ vim.lsp.config["tofu-ls"] = {
   settings = {},
 }
 
+vim.lsp.config["typescript-language-server"] = {
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "typescript", "typescriptreact" },
+  settings = {},
+}
+
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
