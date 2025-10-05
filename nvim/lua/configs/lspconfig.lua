@@ -5,6 +5,7 @@ local servers = {
   "gopls",
   "html",
   "lua-language-server",
+  "pyright",
   "rust-analyzer",
   "tofu-ls",
   "typescript-language-server",
