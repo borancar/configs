@@ -25,7 +25,7 @@ font pango:Monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/backgrounds/f43/default/f43-01-day.jxl fill
+output * bg /usr/share/backgrounds/f44/default/f44-01-day.jxl fill
 #
 # Example configuration:
 #
@@ -254,8 +254,10 @@ bindswitch --locked lid:off output $laptop enable
 # Please remove the following exec line:
 #######################################################################
 exec sway-config-wizard
-exec dbus-update-activation-environment --systemd _JAVA_AWT_WM_NONREPARENTING=1 WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=sway VDPAU_DRIVER=radeonsi
+include /etc/sway/config.d/*
+exec dbus-update-activation-environment --systemd _JAVA_AWT_WM_NONREPARENTING=1 VDPAU_DRIVER=radeonsi
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+exec swayidle -w lock 'swaylock -f -c 000000'
 
 for_window [title="Sharing Indicator$"] floating enable, sticky enable
