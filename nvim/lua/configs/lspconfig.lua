@@ -15,6 +15,9 @@ vim.lsp.config["rust-analyzer"] = {
   cmd = { "rust-analyzer" },
   filetypes = { "rust" },
   root_markers = { "Cargo.lock", "Cargo.toml" },
+  cmd_env = {
+    CARGO_UNSTABLE_JSON_TARGET_SPEC = "true",
+  },
 }
 
 vim.lsp.config["tofu-ls"] = {
